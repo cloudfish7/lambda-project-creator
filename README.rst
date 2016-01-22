@@ -1,7 +1,7 @@
 lambda-project-creator
 ===============
 
-Easily and quickly command line utility creating Lambda Project for lambda-uploader.
+Easily and quickly command line utility creating Lambda Project for lambda-uploader(https://pypi.python.org/pypi/lambda-uploader).
 
 Installation
 ~~~~~~~~~~~~

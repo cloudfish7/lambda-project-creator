@@ -46,6 +46,8 @@ def create_lambda_json(args):
 
     generate_file_from_template('template.json','lambda.json',word_list)
 
+    print('==> generated lambda.json')
+
 # python
 def create_python_file(args):
     word_list ={
@@ -56,15 +58,20 @@ def create_python_file(args):
 
     generate_file_from_template('template.py',file_name_without_ext + '.py' ,word_list)
 
+    print('==> generated python file ' + file_name_without_ext + '.py')
+
 # requirement.txt
 def create_requirement_txt():
     generate_file_from_template('template.txt','requirement.txt')
+
+    print('==> generated requirement.txt')
 
 #mkdir project_dir && cd project_dir
 def create_project_root_dir(args):
     if not os.path.exists(args.project_name):
        os.makedirs(args.project_name)
     os.chdir(args.project_name)
+    print('==> created project root directory ' + args.project_name)
 
 #virtualenv .venv_args.project_name
 def execute_virtualenv(args):
@@ -72,6 +79,7 @@ def execute_virtualenv(args):
     ret.wait()
     stdout_data, stderr_data = ret.communicate()
     LOG.debug(stdout_data)
+    print('==> created virtualenv ' + '.venv_' + args.project_name)
 
 #source .venv_args.project_name/bin/activate
 def activate_virtualenv(args):
@@ -89,6 +97,7 @@ def pipinstall_lambda_uploader():
     ret.wait()
     stdout_data, stderr_data = ret.communicate()
     LOG.debug(stdout_data)
+    print('==> installed lambda-uploader')
 
 def _execute(args):
 
@@ -105,6 +114,8 @@ def _execute(args):
     create_python_file(args)
 
     create_requirement_txt()
+
+    print('Successfully created project')
 
 # entry point
 def main(arv=None):

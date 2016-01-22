@@ -11,7 +11,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='lambda-project-creator',
 
-    version='0.0.6',
+    version='0.0.7',
 
     description='lambda-project-creator project',
     long_description=long_description,
